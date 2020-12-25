@@ -1,0 +1,36 @@
+{
+  viewer {
+    repositoriesContributedTo(first: 100, contributionTypes: [COMMIT, PULL_REQUEST, REPOSITORY]) {
+      totalCount
+      nodes {
+        nameWithOwner
+        languages(first: 5, orderBy: {field: SIZE, direction: DESC}) {
+          nodes {
+            color
+            name
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+    repositories(first: 100, isFork: false) {
+      totalCount
+      nodes {
+        nameWithOwner
+        languages(first: 5, orderBy: {direction: DESC, field: SIZE}) {
+          nodes {
+            color
+            name
+          }
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+}
